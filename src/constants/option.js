@@ -1,0 +1,2 @@
+export const GET_OPTION_TYPE = 'GET_OPTION_TYPE';
+export const GET_MOCK_OPTION_TYPE = 'GET_MOCK_OPTION_TYPE';

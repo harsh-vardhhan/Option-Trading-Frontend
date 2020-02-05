@@ -1,0 +1,2 @@
+export const GET_SYMBOL_TYPE = 'GET_SYMBOL_TYPE';
+export const UPDATE_SYMBOL_TYPE = 'UPDATE_SYMBOL_TYPE';

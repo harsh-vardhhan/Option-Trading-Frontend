@@ -1,0 +1,1 @@
+export {Pricing as default} from './pricing';
