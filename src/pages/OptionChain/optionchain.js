@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {Layout, Tabs} from 'antd';
+import {Layout, Tabs, Alert} from 'antd';
 import 'react-table/react-table.css';
 import '../../App.css';
 import {Header} from '../../components/Header/optionheader';
@@ -315,6 +315,7 @@ class OptionChainComponent extends Component {
         }} = this.props.overmind;
       return (
           <Layout style={{background: '#FFFFFF'}}>
+              <Alert message="We are still in Pre-Alpha stage. Please do not use this product for the final decision for placing trade" banner/>
               <OptionPriceModal
                   optionPriceModal={this.state.optionPriceModal}
                   calculateFuturePrice={this.calculateFuturePrice}

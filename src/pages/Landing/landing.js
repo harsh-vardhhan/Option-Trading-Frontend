@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React, {useState, useEffect} from 'react';
-import {Row, Col, Typography, Layout, Button, Card} from 'antd';
+import {Row, Col, Typography, Layout, Button, Card, Alert} from 'antd';
 import {GoogleLogin} from 'react-google-login';
 import {validateProfile} from '../../api/login';
 
@@ -44,6 +44,7 @@ export function Landing() {
     }, [urlPath]);
     return (
         <Container>
+            <Alert message="We are still in Pre-Alpha stage. Please do not use this product for the final decision for placing trade" banner/>
             <Header style={{background: '#fff'}}>
                 <div className='logo'><Logo/></div><Title>{'TrakBit'}</Title>
             </Header>
