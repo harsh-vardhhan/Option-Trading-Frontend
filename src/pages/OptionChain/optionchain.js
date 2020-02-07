@@ -27,6 +27,13 @@ const Container = styled(FlexCol)`
   justify-content: space-between;
 `;
 
+const WarningContainer = styled.section`
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  text-align: center;
+`;
+
 //const tempToken = 'c970f2ad316baf2e29ede715a735739239c10c57';
 
 const {Content} = Layout;
@@ -315,7 +322,9 @@ class OptionChainComponent extends Component {
         }} = this.props.overmind;
       return (
           <Layout style={{background: '#FFFFFF'}}>
-              <Alert message="We are still in Pre-Alpha stage. Please do not use this product for the final decision for placing trade" banner/>
+              <WarningContainer>
+                <Alert message="We are still in Pre-Alpha stage. Please do not use this product for the final decision for placing trade" banner/>
+              </WarningContainer>
               <OptionPriceModal
                   optionPriceModal={this.state.optionPriceModal}
                   calculateFuturePrice={this.calculateFuturePrice}
