@@ -28,7 +28,8 @@ export class Pricing extends Component {
     state = {
         orderId: 0,
         user_name: '',
-        user_full_name: ''
+        user_full_name: '',
+        days_to_expiry: 0
     }
 
     async componentDidMount() {
@@ -38,7 +39,8 @@ export class Pricing extends Component {
         const profile = await getUserProfile(localStorage.getItem('googleid'));
         this.setState({
             user_full_name: profile.user_full_name,
-            user_email: profile.user_email
+            user_email: profile.user_email,
+            days_to_expiry: profile.days_to_expiry
         });
         const orderVal = await getOrderId();
         this.setState({orderId: orderVal.orderId});
@@ -93,6 +95,8 @@ export class Pricing extends Component {
                                 <Text strong>{this.state.user_full_name}</Text>
                                 <br/>
                                 <Text strong>{this.state.user_email}</Text>
+                                <br/>
+                                <Text strong>{'Expires in '}{this.state.days_to_expiry}{' days'}</Text>
                             </Card>
                         </Col>
                         <Col
