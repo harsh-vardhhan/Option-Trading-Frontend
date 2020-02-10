@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Typography, Card, Row, Col, Layout} from 'antd';
 import styled from 'styled-components';
-import {getOrderId, generateSignature, getUserProfile} from '../../api/login';
+import {getOrderId, generateSignature, getUserProfile, validateCustomerToken} from '../../api/login';
 import {Link} from 'react-router-dom';
 
 const FlexCol = styled.div`
@@ -33,9 +33,19 @@ export class Pricing extends Component {
     }
 
     async componentDidMount() {
-        if (localStorage.getItem('googleid') === null) {
+
+        if (localStorage.getItem('googleid') === null || 
+            localStorage.getItem('customertoken') === null) {
             window.location = window.origin;
         }
+        async function validateCustomer() {
+            try {
+                await validateCustomerToken();
+            } catch (error) {
+                window.location = window.origin;
+            }
+        }
+        validateCustomer();
         const profile = await getUserProfile(localStorage.getItem('googleid'));
         this.setState({
             user_full_name: profile.user_full_name,
@@ -55,12 +65,13 @@ export class Pricing extends Component {
             name: 'TrakBit',
             description: 'Trakbit Premium',
             image: 'https://user-images.githubusercontent.com/3825401/72406715-31903800-3783-11ea-876a-c3ccef5ad44f.jpg',
-            handler: (response) => {
-                generateSignature(
+            handler: async(response) => {
+                const signature = await generateSignature(
                     response.razorpay_payment_id,
                     orderIdVal,
                     response.razorpay_signature,
                     localStorage.getItem('googleid'));
+                window.location = window.origin + signature.data.url
             },
             theme: {
                 color: '#1890ff'

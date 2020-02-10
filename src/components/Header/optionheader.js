@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Statistic, Col, Switch} from 'antd';
+import {Statistic, Col} from 'antd';
 import {SearchInstrument} from './searchInstrument';
 import {SelectExpiry} from './selectExpiry';
 import {LineChart, Line, Tooltip, XAxis, YAxis, ReferenceLine} from 'recharts';
@@ -162,7 +162,6 @@ const Header = ({
                             stockSymbol={stockSymbol}
                             getSymbol={getSymbol}
                         />
-                        <br/>
                     </Col>
                 </li>
             </ul>

@@ -68,7 +68,6 @@ const Home = ({location: {search = ''}}) => {
         <>
             <Header/>
             <Container>
-                <StickyHeader>{'Home'}</StickyHeader>
                 <ContainerSection>
                     <h4>{'Options Trading Tools'}</h4>
                 </ContainerSection>

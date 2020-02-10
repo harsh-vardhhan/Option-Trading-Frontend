@@ -1,6 +1,7 @@
 import React from 'react';
 import {Layout, Switch, Col, Button, Tag} from 'antd';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const FlexCol = styled.div`
   display: flex;
@@ -112,6 +113,12 @@ export const Footer = ({
                                     {'Reset'}
                                 </Button>
                             </Col>
+                        </li>
+                        <li>
+                            <Link
+                                to={'/home'}
+                            >{'Home'}
+                            </Link>
                         </li>
                     </ul>
                 </HeaderContent>

@@ -44,7 +44,7 @@ export function Landing() {
     }, [urlPath]);
     return (
         <Container>
-            <Alert message="We are still in Pre-Alpha stage. Please do not use this product for the final decision for placing trade" banner/>
+            <Alert type="info" message="Start your 7 days free trial now" banner/>
             <Header style={{background: '#fff'}}>
                 <div className='logo'><Logo/></div><Title>{'TrakBit'}</Title>
             </Header>
@@ -52,7 +52,7 @@ export function Landing() {
                 <Row>
                     <Col
                         span={12}
-                        style={{paddingTop: '15%', paddingBottom: '15%'}}
+                        style={{paddingTop: '15%', paddingBottom: '15%', alignItems:'center'}}
                     >
                         <Title>{'User Friendly Options Trading'}</Title>
                         <h2>{'Simple trading solution for index and stock options from NSE'}</h2>

@@ -322,9 +322,6 @@ class OptionChainComponent extends Component {
         }} = this.props.overmind;
       return (
           <Layout style={{background: '#FFFFFF'}}>
-              <WarningContainer>
-                <Alert message="We are still in Pre-Alpha stage. Please do not use this product for the final decision for placing trade" banner/>
-              </WarningContainer>
               <OptionPriceModal
                   optionPriceModal={this.state.optionPriceModal}
                   calculateFuturePrice={this.calculateFuturePrice}
