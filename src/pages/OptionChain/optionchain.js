@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {Layout, Tabs, Alert} from 'antd';
+import {Layout, Tabs} from 'antd';
 import 'react-table/react-table.css';
 import '../../App.css';
 import {Header} from '../../components/Header/optionheader';

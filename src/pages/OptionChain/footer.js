@@ -117,7 +117,10 @@ export const Footer = ({
                         <li>
                             <Link
                                 to={'/home'}
-                            >{'Home'}
+                            >
+                                <Button size='small'>
+                                    {'Home'}
+                                </Button>
                             </Link>
                         </li>
                     </ul>

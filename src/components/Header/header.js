@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, PageHeader, Button } from 'antd';
+import {PageHeader, Button } from 'antd';
 import {Link} from 'react-router-dom';
 
 const logout = () => {
