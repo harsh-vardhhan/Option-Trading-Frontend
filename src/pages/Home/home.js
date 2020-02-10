@@ -66,7 +66,7 @@ const Home = ({location: {search = ''}}) => {
     }, []);
     return (
         <>
-            <Header/>
+            <Header header={'Home'}/>
             <Container>
                 <ContainerSection>
                     <h4>{'Options Trading Tools'}</h4>

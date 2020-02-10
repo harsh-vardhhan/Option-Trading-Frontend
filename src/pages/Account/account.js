@@ -3,6 +3,7 @@ import {Button, Typography, Card, Row, Col, Layout} from 'antd';
 import styled from 'styled-components';
 import {getOrderId, generateSignature, getUserProfile, validateCustomerToken} from '../../api/login';
 import {Link} from 'react-router-dom';
+import {Header} from '../../components';
 
 const FlexCol = styled.div`
   display: flex;
@@ -22,9 +23,9 @@ const PricingContainer = styled(FlexCol)`
 `;
 
 const {Title, Text} = Typography;
-const {Header} = Layout;
+//const {Header} = Layout;
 
-export class Pricing extends Component {
+export class Account extends Component {
     state = {
         orderId: 0,
         user_name: '',
@@ -83,72 +84,62 @@ export class Pricing extends Component {
 
     render() {
         return (
-            <Container>
-                <Header style={{background: '#f2f6f5'}}>
-                    <div className='logo'>
-                        <Link to={'/'}>
-                            <Logo/>
-                        </Link>
-                    </div>
-                    <Title>{'TrakBit'}</Title>
-                </Header>
-                <div style={{width: '100%', paddingTop: 30}}>
-                    <Row>
-                        <Col
-                            span={6}
-                            push={18}
-                        >
-                            <Card
-                                size='small'
-                                title='Account'
-                                style={{width: 300}}
+            <>
+                <Header header={'Account'}/>
+                <Container>     
+                    <div style={{width: '100%', paddingTop: 30}}>
+                        <Row>
+                            <Col
+                                span={6}
+                                push={18}
                             >
-                                <Text strong>{this.state.user_full_name}</Text>
-                                <br/>
-                                <Text strong>{this.state.user_email}</Text>
-                                <br/>
-                                <Text strong>{'Expires in '}{this.state.days_to_expiry}{' days'}</Text>
-                            </Card>
-                        </Col>
-                        <Col
-                            span={18}
-                            pull={6}
-                        >
-                            <PricingContainer style={{width: '100%'}}>
-                                <PricingContainer style={{width: '80%'}}>
-                                    <Title>
-                                        <p style={{textAlign: 'center'}}>
-                                            {'Pricing'}
-                                        </p>
-                                    </Title>
-                                    <Card
-                                        title='Premium'
-                                        style={{textAlign: 'center', width: 300}}
-                                    >
-                                        <Title>{'800 ₹/ Month'}</Title>
-                                        <Text strong>{'Enhanced Option Chain'}</Text>
-                                        <br/>
-                                        <Text strong>{'Strategy Builder'}</Text>
-                                        <br/>
-                                        <Text strong>{'Risk Reward Ratio'}</Text>
-                                        <br/>
-                                        <Text strong>{'Quick Graph'}</Text>
-                                        <div style={{paddingTop: 35}}>
-                                            <Button
-                                                type='primary'
-                                                block={true}
-                                                onClick={this.openCheckout}
-                                            >
-                                                {'Pay Now'}
-                                            </Button>
-                                        </div>
-                                    </Card>
+                                <Card
+                                    size='small'
+                                    title='Account'
+                                    style={{width: 300}}
+                                >
+                                    <Text strong>{this.state.user_full_name}</Text>
+                                    <br/>
+                                    <Text strong>{this.state.user_email}</Text>
+                                    <br/>
+                                    <Text strong>{'Expires in '}{this.state.days_to_expiry}{' days'}</Text>
+                                </Card>
+                            </Col>
+                            <Col
+                                span={18}
+                                pull={6}
+                            >
+                                <PricingContainer style={{width: '100%'}}>
+                                    <PricingContainer style={{width: '80%'}}>
+                                        <Card
+                                            title='Premium'
+                                            style={{textAlign: 'center', width: 300}}
+                                        >
+                                            <Title>{'800 ₹/ Month'}</Title>
+                                            <Text strong>{'Enhanced Option Chain'}</Text>
+                                            <br/>
+                                            <Text strong>{'Strategy Builder'}</Text>
+                                            <br/>
+                                            <Text strong>{'Risk Reward Ratio'}</Text>
+                                            <br/>
+                                            <Text strong>{'Quick Graph'}</Text>
+                                            <div style={{paddingTop: 35}}>
+                                                <Button
+                                                    type='primary'
+                                                    block={true}
+                                                    onClick={this.openCheckout}
+                                                >
+                                                    {'Pay Now'}
+                                                </Button>
+                                            </div>
+                                        </Card>
+                                    </PricingContainer>
                                 </PricingContainer>
-                            </PricingContainer>
-                        </Col>
-                    </Row>
-                </div>
-            </Container>
+                            </Col>
+                        </Row>
+                    </div>
+                </Container>
+            </>
         );
     }
 }
