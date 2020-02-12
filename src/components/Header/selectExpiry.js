@@ -33,7 +33,6 @@ export function SelectExpiry({
                 size='small'
                 defaultValue={selectedExpiry}
                 value={selectedExpiry}
-                buttonStyle="solid"
             >
                 {expiryDates.map((value, i) =>
                     <Radio.Button
