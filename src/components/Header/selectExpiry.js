@@ -23,11 +23,12 @@ export function SelectExpiry({
         });
     }
 
-    if (expiryDates !== undefined && expiryDates !== 0) {
+    if (expiryDates[0] !== undefined && expiryDates !== 0) {
         return (
             <Radio.Group
                 onChange={handleChange}
                 size='small'
+                defaultValue={expiryDates[0].upstox_date}
             >
                 {expiryDates.map((value, i) =>
                     <Radio.Button

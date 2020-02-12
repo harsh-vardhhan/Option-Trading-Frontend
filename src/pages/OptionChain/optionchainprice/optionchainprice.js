@@ -20,8 +20,7 @@ export const OptionChainPrice = ({
     innerColumn,
     futureState,
     calculateFuturePrice
-}) => {
-    console.log(optionState.options) 
+}) => { 
     return (
     <ReactTable
         data={optionState.options}

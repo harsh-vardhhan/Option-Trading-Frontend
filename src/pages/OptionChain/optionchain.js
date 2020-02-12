@@ -27,13 +27,6 @@ const Container = styled(FlexCol)`
   justify-content: space-between;
 `;
 
-const WarningContainer = styled.section`
-  display: flex;
-  margin: 0;
-  flex-direction: column;
-  text-align: center;
-`;
-
 //const tempToken = 'c970f2ad316baf2e29ede715a735739239c10c57';
 
 const {Content} = Layout;
@@ -113,7 +106,6 @@ class OptionChainComponent extends Component {
         }
         validateCustomer();
 
-        //await localStorage.setItem("token", tempToken)
         const {actions, state} = this.props.overmind;
         await actions.getOption(
             localStorage.getItem('token'),

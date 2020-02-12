@@ -2,8 +2,6 @@ import React from 'react';
 import {Home, OptionChain, Landing, Login, Account, Blog} from './pages';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import AuthRoute from './AuthRoutes';
-
 export default function Routes() {
     return (
         <Router>
@@ -33,13 +31,10 @@ export default function Routes() {
                     path='/account'
                     component={Account}
                 />
-
-                {/* need to add auth route here  */}
-                <AuthRoute
+                <Route
                     path='/optionchain'
                     component={OptionChain}
                 />
-                {/* <Route exact path="/optionchain" component={OptionChain} />  */}
             </Switch>
         </Router>
     );

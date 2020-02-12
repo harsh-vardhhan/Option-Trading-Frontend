@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Button, Typography, Card, Row, Col, Layout} from 'antd';
+import {Button, Typography, Card, Row, Col} from 'antd';
 import styled from 'styled-components';
 import {getOrderId, generateSignature, getUserProfile, validateCustomerToken} from '../../api/login';
-import {Link} from 'react-router-dom';
 import {Header} from '../../components';
 
 const FlexCol = styled.div`
@@ -143,33 +142,3 @@ export class Account extends Component {
         );
     }
 }
-
-const Logo = props => (
-    <div style={{paddingLeft: '5%', paddingTop: '0.5%', width: '10%', height: 20}}>
-        <svg
-            viewBox='0 0 439 439'
-            fillRule='evenodd'
-            clipRule='evenodd'
-            strokeLinejoin='round'
-            strokeMiterlimit={1.414}
-            {...props}
-        >
-            <ellipse
-                cx={214.551}
-                cy={198.285}
-                rx={176.242}
-                ry={178.261}
-                fill='#40a9ff'
-                transform='matrix(1.19515 0 0 1.20122 -38.814 -19.593)'
-            />
-            <path
-                fill='#fff'
-                d='M195.747 123.486h39.483v263.949h-39.483z'
-            />
-            <path
-                fill='#fff'
-                d='M76.291 96.734h279.061v38.582H76.291z'
-            />
-        </svg>
-    </div>
-);
