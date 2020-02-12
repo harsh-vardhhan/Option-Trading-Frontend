@@ -6,9 +6,12 @@ export function SelectExpiry({
     stockSymbol,
     expiryDates,
     fetchOptionByDate,
-    getSymbol
+    getSymbol,
+    selectedExpiry,
+    setExpiry
 }) {
     function handleChange(value) {
+        setExpiry(value.target.value)
         fetchOptionByDate({
             accessToken: localStorage.getItem('token'),
             symbol,
@@ -28,7 +31,9 @@ export function SelectExpiry({
             <Radio.Group
                 onChange={handleChange}
                 size='small'
-                defaultValue={expiryDates[0].upstox_date}
+                defaultValue={selectedExpiry}
+                value={selectedExpiry}
+                buttonStyle="solid"
             >
                 {expiryDates.map((value, i) =>
                     <Radio.Button

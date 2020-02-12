@@ -3,7 +3,12 @@ import {AutoComplete} from 'antd';
 
 const Option = AutoComplete.Option;
 
-export function SearchInstrument({fetchOption, getSymbol}) {
+export function SearchInstrument({
+    fetchOption,
+    getSymbol,
+    setExpiry,
+    expiryDates
+}) {
     const Instruments = [
         {
             key: 'NIFTY',
@@ -18,6 +23,7 @@ export function SearchInstrument({fetchOption, getSymbol}) {
     const [dataSource, setDataSource] = React.useState(Instruments);
 
     async function onSelect(key, value) {
+        setExpiry(expiryDates[0].upstox_date)
         await fetchOption({
             accessToken: localStorage.getItem('token'),
             symbol: value.props.children,

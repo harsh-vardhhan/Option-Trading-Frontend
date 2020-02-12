@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Statistic, Col} from 'antd';
 import {SearchInstrument} from './searchInstrument';
@@ -46,128 +46,137 @@ const Header = ({
     fetchOptionByDate,
     stockPrice,
     symbolState
-}) => (
-    <Container style={{background: '#FFFFFF'}}>
-        <HeaderContent>
-            <ul>
-                <li>
-                    <Col>
-                        <Statistic
-                            title={symbol}
-                            value={stockPrice}
-                        />
-                    </Col>
-                </li>
-                <li>
-                    <Col>
-                        <Statistic
-                            title={symbol + ' Future'}
-                            value={futurePrice}
-                        />
-                    </Col>
-                </li>
-                <li >
-                    <Col>
-                        <Statistic
-                            title={'Lot Size'}
-                            value={lotSize}
-                        />
-                    </Col>
-                </li>
-                <li>
-                    <Col>
-                        <Statistic
-                            title={'Expiry (Days)'}
-                            value={daysToExpiry}
-                        />
-                    </Col>
-                </li>
-                <li>
-                    <Col>
-                        <Statistic
-                            title={'PCR'}
-                            value={pcr}
-                        />
-                    </Col>
-                </li>
-                <li>
-                    <Premium premium={symbolState.calData.premium}/>
-                </li>
-                <li>
-                    <Col>
-                        <Statistic
-                            title={'Max Profit'}
-                            value={symbolState.calData.max_profit_expiry}
-                        />
-                    </Col>
-                </li>
-                <li>
-                    <Col>
-                        <Statistic
-                            title={'Max Loss'}
-                            value={symbolState.calData.max_loss_expiry}
-                        />
-                    </Col>
-                </li>
-                <li>
-                    <Col>
-                        <div style={{marginTop: 3}}>
-                            <LineChart
-                                height={50}
-                                width={200}
-                                data={symbolState.calData.mini_chart}
-                                margin={{
-                                    top: 5, right: 30, left: 20, bottom: 5
-                                }}
-                            >
-                                <XAxis
-                                    hide={true}
-                                    dataKey='strike_price'
+}) => {
+    if (expiryDates[0] !== undefined) { 
+        const [selectedExpiry, setExpiry] = useState(expiryDates[0].upstox_date);
+        return (
+            <Container style={{background: '#FFFFFF'}}>
+                <HeaderContent>
+                    <ul>
+                        <li>
+                            <Col>
+                                <Statistic
+                                    title={symbol}
+                                    value={stockPrice}
                                 />
-                                <ReferenceLine
-                                    y={0}
-                                    strokeWidth={3}
-                                    stroke='#f50'
+                            </Col>
+                        </li>
+                        <li>
+                            <Col>
+                                <Statistic
+                                    title={symbol + ' Future'}
+                                    value={futurePrice}
                                 />
-                                <YAxis
-                                    hide={true}
-                                    domain={[
-                                        symbolState.calData.max_loss_numerical,
-                                        symbolState.calData.max_profit_numerical
-                                    ]}
+                            </Col>
+                        </li>
+                        <li >
+                            <Col>
+                                <Statistic
+                                    title={'Lot Size'}
+                                    value={lotSize}
                                 />
-                                <Tooltip/>
-                                <Line
-                                    type='monotone'
-                                    dataKey='profit'
-                                    stroke='#2db7f5'
-                                    strokeWidth={3}
+                            </Col>
+                        </li>
+                        <li>
+                            <Col>
+                                <Statistic
+                                    title={'Expiry (Days)'}
+                                    value={daysToExpiry}
                                 />
-                            </LineChart>
-                        </div>
-                    </Col>
-                </li>
-                <li>
-                    <Col>
-                        <SearchInstrument
-                            getSymbol={getSymbol}
-                            fetchOption={fetchOption}
-                        />
-                        <br/>
-                        <SelectExpiry
-                            expiryDates={expiryDates}
-                            expiryDate={expiryDate}
-                            fetchOptionByDate={fetchOptionByDate}
-                            symbol={symbol}
-                            stockSymbol={stockSymbol}
-                            getSymbol={getSymbol}
-                        />
-                    </Col>
-                </li>
-            </ul>
-        </HeaderContent>
-    </Container>
-);
+                            </Col>
+                        </li>
+                        <li>
+                            <Col>
+                                <Statistic
+                                    title={'PCR'}
+                                    value={pcr}
+                                />
+                            </Col>
+                        </li>
+                        <li>
+                            <Premium premium={symbolState.calData.premium}/>
+                        </li>
+                        <li>
+                            <Col>
+                                <Statistic
+                                    title={'Max Profit'}
+                                    value={symbolState.calData.max_profit_expiry}
+                                />
+                            </Col>
+                        </li>
+                        <li>
+                            <Col>
+                                <Statistic
+                                    title={'Max Loss'}
+                                    value={symbolState.calData.max_loss_expiry}
+                                />
+                            </Col>
+                        </li>
+                        <li>
+                            <Col>
+                                <div style={{marginTop: 3}}>
+                                    <LineChart
+                                        height={50}
+                                        width={200}
+                                        data={symbolState.calData.mini_chart}
+                                        margin={{
+                                            top: 5, right: 30, left: 20, bottom: 5
+                                        }}
+                                    >
+                                        <XAxis
+                                            hide={true}
+                                            dataKey='strike_price'
+                                        />
+                                        <ReferenceLine
+                                            y={0}
+                                            strokeWidth={3}
+                                            stroke='#f50'
+                                        />
+                                        <YAxis
+                                            hide={true}
+                                            domain={[
+                                                symbolState.calData.max_loss_numerical,
+                                                symbolState.calData.max_profit_numerical
+                                            ]}
+                                        />
+                                        <Tooltip/>
+                                        <Line
+                                            type='monotone'
+                                            dataKey='profit'
+                                            stroke='#2db7f5'
+                                            strokeWidth={3}
+                                        />
+                                    </LineChart>
+                                </div>
+                            </Col>
+                        </li>
+                        <li>
+                            <Col>
+                                <SearchInstrument
+                                    getSymbol={getSymbol}
+                                    fetchOption={fetchOption}
+                                    setExpiry={setExpiry}
+                                    expiryDates={expiryDates}
+                                />
+                                <br/>
+                                <SelectExpiry
+                                    expiryDates={expiryDates}
+                                    expiryDate={expiryDate}
+                                    fetchOptionByDate={fetchOptionByDate}
+                                    symbol={symbol}
+                                    stockSymbol={stockSymbol}
+                                    getSymbol={getSymbol}
+                                    setExpiry={setExpiry}
+                                    selectedExpiry={selectedExpiry}
+                                />
+                            </Col>
+                        </li>
+                    </ul>
+                </HeaderContent>
+            </Container>
+        );
+    } else return <div/>
+}
 
 export {Header};
 
