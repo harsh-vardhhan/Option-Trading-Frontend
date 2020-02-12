@@ -67,8 +67,8 @@ export function Landing() {
                         span={12}
                         style={{paddingTop: '15%', paddingBottom: '15%', alignItems:'center'}}
                     >
-                        <Title>{'User Friendly Options Trading'}</Title>
-                        <h2>{'Simple trading solution for index and stock options from NSE'}</h2>
+                        <Title>{'Options Analytics Tool'}</Title>
+                        <h2>{'For trading NIFTY and BANKNIFTY index options'}</h2>
                         <GoogleLogin
                             clientId='639182935981-99okgdgro1iv85g6uorcldr87rrenrmn.apps.googleusercontent.com'
                             onSuccess={handleLogin}
