@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React, {useState, useEffect} from 'react';
-import {Row, Col, Typography, Layout, Button, Card, Alert} from 'antd';
+import {Row, Col, Typography, Layout, Button, Card, Alert, PageHeader} from 'antd';
 import {GoogleLogin} from 'react-google-login';
 import {validateProfile} from '../../api/login';
 
@@ -17,6 +17,14 @@ const Container = styled.section`
   flex-direction: column;
   text-align: center;
 `;
+
+const HeaderContainer = styled.section`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 0 0 0 37%;
+`;
+
 
 const PricingContainer = styled(FlexCol)`
   padding: 0rem 5rem 0rem 5rem;
@@ -44,9 +52,14 @@ export function Landing() {
     }, [urlPath]);
     return (
         <Container>
-            <Alert type="info" message="Start your 7 days free trial now" banner/>
+            <Header style={{background: '#33334f'}}>
+                <HeaderContainer>
+                        <Notification/>
+                        <h3 style={{color: '#FFFFFF'}}>{'START YOUR 7 DAYS FREE TRIAL'}</h3>
+                </HeaderContainer>
+            </Header>
             <Header style={{background: '#fff'}}>
-                <div className='logo'><Logo/></div><Title>{'TrakBit'}</Title>
+                <div className='logo'><Logo/></div><Title >{'TrakBit'}</Title>
             </Header>
             <div>
                 <Row>
@@ -250,8 +263,8 @@ export function Landing() {
                     </PricingContainer>
                 </Row>
             </div>
-            <Footer style={{textAlign: 'center', backgroundColor: '#FFFFFF'}}>
-                <h2>{'TrakBit TechSolutions LLP'}</h2>
+            <Footer style={{textAlign: 'center', backgroundColor: '#33334f'}}>
+                <h2 style={{color: '#FFFFFF'}}>{'TrakBit TechSolutions LLP'}</h2>
             </Footer>
         </Container>
     );
@@ -604,3 +617,37 @@ const Money = props => (
         </svg>
     </div>
 );
+
+
+const Notification = () => {
+    
+    return (
+        <div style={{paddingTop: '1.4%',height: '4%',width: '4%'}}>
+            <svg
+            viewBox="0 0 4 4"
+            fillRule="evenodd"
+            clipRule="evenodd"
+            strokeLinejoin="round"
+            strokeMiterlimit={1.414}
+            >
+            <ellipse
+                cx={19.18}
+                cy={17.436}
+                rx={6.133}
+                ry={5.62}
+                fill="#00ff30"
+                fillOpacity={0.29}
+                transform="matrix(.23456 0 0 .24839 -2.499 -2.33)"
+            />
+            <ellipse
+                cx={18.402}
+                cy={17.939}
+                rx={4.317}
+                ry={4.361}
+                fill="#00ff30"
+                transform="matrix(.15057 0 0 .14905 -.777 -.63)"
+            />
+            </svg>
+        </div>
+    )
+}

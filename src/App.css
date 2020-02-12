@@ -6,3 +6,8 @@
 .div .rt-th {
     background-color: "#FFFFFF";
 }
+
+@font-face {
+    font-family: 'MyFont';
+    src: local('MyFont'), url(./fonts/CamphorPro.woff) format('woff');
+}
