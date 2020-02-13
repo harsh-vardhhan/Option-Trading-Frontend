@@ -21,6 +21,12 @@ const PricingContainer = styled(FlexCol)`
   justify-content: space-between;
 `;
 
+const UserContainer = styled(FlexCol)`
+  padding: 0rem 2rem 0rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const {Title, Text} = Typography;
 //const {Header} = Layout;
 
@@ -97,6 +103,9 @@ export class Account extends Component {
                                     title='Account'
                                     style={{width: 300}}
                                 >
+                                    <UserContainer>
+                                        <Money/>              
+                                    </UserContainer>
                                     <Text strong>{this.state.user_full_name}</Text>
                                     <br/>
                                     <Text strong>{this.state.user_email}</Text>
@@ -142,3 +151,33 @@ export class Account extends Component {
         );
     }
 }
+
+
+const Money = props => (
+    <div style={{width: '50%'}}>
+        <svg
+        viewBox="0 0 380 380"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        strokeLinejoin="round"
+        strokeMiterlimit={1.414}
+        {...props}
+        >
+        <ellipse
+            cx={181.382}
+            cy={176.194}
+            rx={162.504}
+            ry={159.776}
+            fill="#40a9ff"
+            fillOpacity={0.15}
+            transform="matrix(1 0 0 1.01705 12 12.72)"
+        />
+        <path
+            d="M223.443 124.866c16.19 15.485 16.19 40.593 0 56.078-16.188 15.485-42.436 15.485-58.625 0-16.19-15.485-16.19-40.593 0-56.078 16.189-15.485 42.437-15.485 58.625 0M257.72 221.136c-37.792-24.424-89.388-24.424-127.18 0-5.606 3.621-8.956 9.74-8.956 16.37v34.358h145.092v-34.357c0-6.631-3.35-12.75-8.957-16.37z"
+            fill="#40a9ff"
+            fillRule="nonzero"
+        />
+        </svg>
+    </div>
+  );
+  
