@@ -59,7 +59,7 @@ export function Landing() {
                 </HeaderContainer>
             </Header>
             <Header style={{background: '#fff'}}>
-                <div className='logo'><Logo/></div><Title >{'TrakBit'}</Title>
+                <div className='logo'><Logo/></div>
             </Header>
             <div>
                 <Row>
@@ -497,31 +497,36 @@ const Liquid = props => (
 );
 
 const Logo = props => (
-    <div style={{paddingLeft: '5%', paddingTop: '0.5%', width: '10%', height: 20}}>
+    <div style={{paddingLeft: '5%', paddingTop: '0.5%', width: '20%', height: 20}}>
         <svg
-            viewBox='0 0 439 439'
-            fillRule='evenodd'
-            clipRule='evenodd'
-            strokeLinejoin='round'
-            strokeMiterlimit={1.414}
-            {...props}
+        viewBox="0 0 1000 300"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        strokeLinejoin="round"
+        strokeMiterlimit={1.414}
+        {...props}
         >
-            <ellipse
-                cx={214.551}
-                cy={198.285}
-                rx={176.242}
-                ry={178.261}
-                fill='#40a9ff'
-                transform='matrix(1.19515 0 0 1.20122 -38.814 -19.593)'
-            />
-            <path
-                fill='#fff'
-                d='M195.747 123.486h39.483v263.949h-39.483z'
-            />
-            <path
-                fill='#fff'
-                d='M76.291 96.734h279.061v38.582H76.291z'
-            />
+        <ellipse
+            cx={214.551}
+            cy={198.285}
+            rx={176.242}
+            ry={178.261}
+            fill="#40a9ff"
+            transform="matrix(.62414 0 0 .61707 -2.845 28.439)"
+        />
+        <text
+            x={300.208}
+            y={208.578}
+            fontFamily="'PalanquinDark-Regular','Palanquin Dark',sans-serif"
+            fontSize={208.254}
+            transform="translate(7.067 10.81)"
+        >
+            {"trakbit"}
+        </text>
+        <path
+            d="M93.856 148.898a12.715 12.715 0 00-12.716-12.716 11.557 11.557 0 00-11.558 11.558v40.339c0 6.89 5.585 12.478 12.477 12.478h.001c6.514 0 11.796-5.282 11.796-11.796v-39.863zM142.76 133.778c0-7.023-5.693-12.717-12.717-12.717a11.557 11.557 0 00-11.558 11.559v55.699c0 6.891 5.585 12.478 12.477 12.478h.001c6.514 0 11.796-5.282 11.796-11.797v-55.222zM191.425 116.892c0-7.022-5.693-12.716-12.717-12.716a11.559 11.559 0 00-11.558 11.559v72.954c0 6.891 5.586 12.478 12.477 12.478h.002c6.514 0 11.796-5.281 11.796-11.796v-72.479z"
+            fill="#fff"
+        />
         </svg>
     </div>
 );
